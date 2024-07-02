@@ -1,28 +1,30 @@
 <template>
-    <div class="body-wrapper">
-        <div class="body">
-            <div class="show_article">
-                <div class="article_col article_col_1">
-                    <article class="article_block">
-                        <span class="label"> {{ articleList.articleDatabase[0].tag }}</span>
-                        <a class="article_pic" href="./5.html">
-                        <img src="../IMG/5-1.jpeg"></a>
-                        <a class="title_brief" href="./5.html">{{ articleList.articleDatabase[0].name }}</a>
-                        <span>{{articleList.articleDatabase[0].date}}</span>
-                        <div class="article_description">{{articleList.articleDatabase[0].des}}</div>
-                    </article>
-                    <article class="article_block"><a href="./2.html" class="category_num"><div class="category_tag_small category_tag_write"></div><span class="label">随笔与小说</span></a><a class="article_pic" href="./2.html"><img src="../IMG/2-1.jpeg"></a><a class="title_brief" href="./2.html">随笔 - 又一次失败</a><span>2022年11月6日</span><div class="article_description">我们还应该继续相信奇迹吗？</div></article>
-                </div>
-                <div class="article_col article_col_2">
-                    <article class="article_block"><a href="./4.html" class="category_num"><div class="category_tag_small category_tag_life"></div><span class="label">生活</span></a><a class="article_pic" href="./4.html"><img src="../IMG/4-1.jpeg"></a><a class="title_brief" href="./4.html">Xbox Series2上手体验</a><span>2022年11月12日</span><div class="article_description">使用游戏手柄的人生第一次！</div></article>
-                    <article class="article_block"><a href="./1.html" class="category_num"><div class="category_tag_small category_tag_write"></div><span class="label">随笔与小说</span></a><a class="article_pic" href="./1.html"><img src="../IMG/1.jpg"></a><a class="title_brief" href="./1.html">随笔 - 陌生人的棺材</a><span>2022年3月14日</span><div class="article_description">我对死亡一向有难言说的恐惧。这种让人入眠前面对黑暗无比心慌的感觉源于曾参加过的两场葬礼。</div></article>
-                </div>
-                <div class="article_col article_col_3">
-                    <article class="article_block"><a href="./3.html" class="category_num"><div class="category_tag_small category_tag_game"></div><span class="label">游戏</span></a><a class="article_pic" href="./3.html"><img src="../IMG/3-1.jpeg"></a><a class="title_brief" href="./3.html">在一次旅途中找寻平静与感动</a><span>2022年11月10日</span><div class="article_description">阿图尔叔叔安静地离去，卸下了我对这个游戏最后的防备</div></article>
-                </div>
-            </div>
-        </div>
+  <div class="body-wrapper">
+    <div class="body">
+      <div class="article_col">
+        <article class="article_block" v-for="(item) in al_odd" :key="item.id">
+          <a class="article_pic" @click="getArticleRouter(item.id)">
+              <img :src="getImg(item.img)" />
+          </a>
+          <span class="label"> {{ item.tag }}</span>
+          <a class="title_brief" @click="getArticleRouter(item.id)">{{ item.name }}</a>
+          <span class="article_time">{{item.date}}</span>
+          <div class="article_description">{{item.des}}</div>
+        </article>
+      </div>
+      <div class="article_col">
+        <article class="article_block" v-for="(item) in al_even" :key="item.id">  
+          <a class="article_pic" @click="getArticleRouter(item.id)">
+              <img :src="getImg(item.img)" />
+          </a>
+          <span class="label"> {{ item.tag }}</span>
+          <a class="title_brief" @click="getArticleRouter(item.id)">{{ item.name }}</a>
+          <span class="article_time">{{item.date}}</span>
+          <div class="article_description">{{item.des}}</div>
+        </article>
+      </div>             
     </div>
+  </div>
 </template>
 
 <style scoped>
@@ -31,19 +33,20 @@
     margin-top: 16px;
 }
 
-.body {
-  width: 1200px;
-  margin: 0 auto;
+@media screen and (min-width:1200px) {
+  .body{
+    width: 1200px;
+    margin: 0 auto;
+  }
 }
 
-.show_article {
-  margin-top: 2rem;
+.body {
   display: flex;
-  width: 100%;
+  flex: 0 0 0.5;
 }
 
 .article_col {
-  flex: 0 0 33.3%;
+  width: 50%;
 }
 
 .article_block {
@@ -59,40 +62,18 @@
   transform: scale(1.025);
 }
 
-.article_block span {
+.article_time {
   font-size: 0.8rem;
   color: var(--main-color-grey);
 }
 
-/* .category_num {
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-}
-
-.category_num::before {
-  content: '—';
-  order: 1;
-  color: var(--main-color-grey);
-  margin: 0 0.5rem;
-}
-
-.category_num:hover>.label::after {
-  left: 0;
-  width: 100%;
-  background-color: var(--main-color-black);
-}
-
-.category_num:hover>.label {
-  color: var(--main-color-black);
-} */
-
 .label {
+  font-size: 16px;
   display: inline-flex;
   align-items: center;
   text-decoration: none;
   position: relative;
-  color: var(--main-background-color-white);
+  color: var(--main-color-grey);
   /* font-family: "Smiley-Sans"; */
 }
 
@@ -181,56 +162,38 @@
 </style>
 
 <script setup>
-// import { ref } from 'vue';
 import articleList from '@/JS/data'
-console.log(articleList)
-// const articleList = articleDatabase;
-// const al = articleList;
-// const articleList = ref([
-//     {
-//         "id": 5,
-//         "name": "开始跑步之后",
-//         "date": "2022年11月23日",
-//         "tag": "跑步",
-//         "img": "5-1.jpeg",
-//         "md": "20221123",
-//         "des": "明天是否会继续跑下去，我不知道，至少今天跑了"
-//     },
-//     {
-//         "id": 4,
-//         "name": "Xbox Series2上手体验",
-//         "date": "2022年11月12日",
-//         "tag": "life",
-//         "img": "4-1.jpeg",
-//         "md": "20221106",
-//         "des": "使用游戏手柄的人生第一次！"
-//     },
-//     {
-//         "id": 3,
-//         "name": "在一次旅途中找寻平静与感动",
-//         "date": "2022年11月10日",
-//         "tag": "game",
-//         "img": "3-1.jpeg",
-//         "md": "20221110",
-//         "des": "阿图尔叔叔安静地离去，卸下了我对这个游戏最后的防备"
-//     },
-//     {
-//         "id": 2,
-//         "name": "随笔 - 又一次失败",
-//         "date": "2022年11月6日",
-//         "tag": "write",
-//         "img": "2-1.jpeg",
-//         "md": "20221106",
-//         "des": "我们还应该继续相信奇迹吗？"
-//     },
-//     {
-//         "id": 1,
-//         "name": "随笔 - 陌生人的棺材",
-//         "date": "2022年3月14日",
-//         "tag": "write",
-//         "img": "1.jpg",
-//         "md": "20221006",
-//         "des": "我对死亡一向有难言说的恐惧。这种让人入眠前面对黑暗无比心慌的感觉源于曾参加过的两场葬礼。"
-//     }
-// ])
+import { useRouter } from "vue-router";
+const router = useRouter()
+
+var al_odd = [];
+var al_even = [];
+for(let i=0;i<articleList.articleDatabase.length;i++){
+  if(i%2==0){
+    al_odd.push(articleList.articleDatabase[i]);
+  }else{
+    al_even.push(articleList.articleDatabase[i]);
+  }
+}
+
+const getImg = (img) =>{
+  return require(`../IMG/${img}`)
+}
+
+const getArticleRouter = (id) => {
+  router.push({
+    path : '/article' + id,
+  }),
+  router.afterEach(() => {
+  let bodySrcollTop = document.body.scrollTop
+  if (bodySrcollTop !== 0) {
+    document.body.scrollTop = 0
+    return
+  }
+  let docSrcollTop = document.documentElement.scrollTop
+  if (docSrcollTop !== 0) {
+    document.documentElement.scrollTop = 0
+  }
+})
+}
 </script>

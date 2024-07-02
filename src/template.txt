@@ -1,0 +1,61 @@
+<template>
+    <div>
+        <TopButton/>
+        <HeaderWapper/>
+        <ArticleTitle :articleId="aid"/>
+        <FooterWapper/>
+    </div>
+</template>
+
+<script setup>
+import HeaderWapper from '../components/HeaderWapper.vue'
+import FooterWapper from '../components/FooterWapper.vue'
+import TopButton from '../components/TopButton.vue'
+import ArticleTitle from '../components/ArticleTitle.vue'
+import ImgComponent from '../components/ImgComponent.vue'
+
+const aid = "0001";
+</script>
+
+<style scoped>
+.body-wrapper {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.body {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.content {
+  margin: 0 auto;
+  width: 680px;
+  color: var(--main-color-black);
+  font-family: "Open Sans", "\5FAE\8F6F\96C5\9ED1";
+  font-size: 1.25rem;
+  font-weight: 100;
+  line-height: 1.7;
+  letter-spacing: 0.05rem;
+  text-align: center;
+}
+
+.content p {
+  text-align: left;
+  text-indent: 2rem;
+}
+
+.content img {
+  width: 80%;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.content span {
+  display: block;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 200;
+  color: var(--main-color-grey);
+}
+</style>

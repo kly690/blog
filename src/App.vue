@@ -1,28 +1,12 @@
 <template>
-  <div>
-      <HeaderWapper />
-      <ProfileComponent />
-      <TopButton />
-      <ArticleList />
-      <FooterWapper />
-  </div>
+  <router-view></router-view>
 </template>
 
 <script>
-import HeaderWapper from './components/HeaderWapper.vue'
-import ProfileComponent from './components/ProfileComponent.vue'
-import TopButton from './components/TopButton.vue'
-import ArticleList from './components/ArticleList.vue'
-import FooterWapper from './components/FooterWapper.vue'
-
 export default {
   name: 'App',
   components: {
-    HeaderWapper,
-    ProfileComponent,
-    TopButton,
-    ArticleList,
-    FooterWapper
+
   }
 }
 </script>
@@ -69,4 +53,11 @@ body {
   font-family: hg-grotesk, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+a:visited {
+  color: var(--main-color-black);
+}
+
+a:hover {
+  cursor: pointer;
+}
 </style>

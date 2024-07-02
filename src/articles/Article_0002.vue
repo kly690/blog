@@ -1,72 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <script src="./JS/index.js"></script>
-    <script src="./JS/top.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="./CSS/style.css">
-    <link rel="stylesheet" type="text/css" href="./CSS/effect.css">
-    <link rel="stylesheet" type="text/css" href="./fontawesome-free-6.2.0-web/css/all.min.css">
-
-
-    <title>又一次失败</title>
-</head>
-
-<body>
-    <div class="top topButton">
-        <i class="fa-solid fa-circle-up"></i>
-    </div>
-    <div class="head-wrapper">
-        <div class="head">
-            <nav class="nav_tag">
-                <div class="nav_blank"></div>
-                <div><a href="./index.html" class="nav_a">首页</a></div>
-                <div><a href="category_write.html" class="nav_a">随笔与小说</a></div>
-                <div><a href="category_game.html" class="nav_a">游戏</a></div>
-                <div><a href="category_life.html" class="nav_a">生活</a></div>
-                <div><a href="category_book.html" class="nav_a">书与诗</a></div>
-                <div class="nav_middle"><i class="fa-solid fa-arrows-left-right"></i></div>
-                <div><a href="./diary.html" class="nav_a"> <i class="fa-solid fa-heart-pulse"></i> 心情日记</a></div>
-                <div><a href="#" class="nav_a"> <i class="fa-solid fa-pen"></i> 技术分享</a></div>
-                <div><a href="#" class="nav_a"> <i class="fa-sharp fa-solid fa-magnifying-glass"></i> 搜索</a></div>
-                <div class="nav_blank"></div>
-            </nav>
-        </div>
-    </div>
-    <div class="title">
-        <div class="title_img" style="background-image: url('./IMG/2-1.jpeg');">
-            <a href="./category_write.html" class="category_word">
-                <div class="category_tag_big category_tag_game"></div>
-                <span class="label">随笔与小说</span>
-            </a>
-            <div class="title_h1">
-                随笔 - 又一次失败
-            </div>
-            <div class="title_info">
-                <a class="title_info_author">Rock Ke</a>
-                <span class="title_info_time">2022年11月11日</span>
-                <span class="title_info_words">860</span>
-            </div>
-            <span class="title_description">
-                "我们还应该继续相信奇迹吗？"
-            </span>
-            <div class="title_img_mask">
-            </div>
-        </div>
-    </div>
-    <div class="body-wrapper">
+<template>
+    <div>
+        <TopButton/>
+        <HeaderWapper/>
+        <ArticleTitle :articleId="aid"/>
+        <div class="body-wrapper">
         <div class="body">
-            <div id="music"></div>
             <div class="content">
                 <p>
                     没有出乎意料的情绪，T1又一次在最终决赛的舞台被3比2击败。上一次这个场景是在MSI，我看见宙斯抬起头望着金色的雨，脸上是不甘的笑容。这一次K博士掩面痛哭，见证了Deft登上顶峰。
                 </p>
-                <img src="./IMG/2-3.jpeg">
+                <ImgComponent url="2-3.jpeg" />
                 <p>
                     好像我们已经习惯了这样的剧本：面对弱队有绝对压制力，让粉丝无比激动自信；面对强队前几局有来有回，后两局开始出现大量操作失误和决策失误，第五局选出团战阵容拖到远古龙团，因为没有抢到远古龙而被结束比赛。好像职业生涯十年的Faker依然不能冷静地面对劣势局。这似乎不意外，如果对比赛和胜利已经麻木，一个人很难在竞技的舞台上坚持这么长的时间。
                 </p>
@@ -92,6 +35,59 @@
             </div>
         </div>
     </div>
-</body>
+        <FooterWapper/>
+    </div>
+</template>
 
-</html>
+<script setup>
+import HeaderWapper from '../components/HeaderWapper.vue'
+import FooterWapper from '../components/FooterWapper.vue'
+import TopButton from '../components/TopButton.vue'
+import ArticleTitle from '../components/ArticleTitle.vue'
+import ImgComponent from '../components/ImgComponent.vue'
+const aid = "0002";
+
+</script>
+
+<style scoped>
+.body-wrapper {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.body {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.content {
+  margin: 0 auto;
+  width: 680px;
+  color: var(--main-color-black);
+  font-family: "Open Sans", "\5FAE\8F6F\96C5\9ED1";
+  font-size: 1.25rem;
+  font-weight: 100;
+  line-height: 1.7;
+  letter-spacing: 0.05rem;
+  text-align: center;
+}
+
+.content p {
+  text-align: left;
+  text-indent: 2rem;
+}
+
+.content img {
+  width: 80%;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.content span {
+  display: block;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 200;
+  color: var(--main-color-grey);
+}
+</style>
