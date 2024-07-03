@@ -35,6 +35,21 @@ const routes = [
         path: '/article0003',
         name: 'article0003',
         component: () => import('../articles/Article_0003.vue')
+    },
+    {
+        path: '/article0004',
+        name: 'article0004',
+        component: () => import('../articles/Article_0004.vue')
+    },
+    {
+        path: '/article0005',
+        name: 'article0005',
+        component: () => import('../articles/Article_0005.vue')
+    },
+    {
+        path: '/article0006',
+        name: 'article0006',
+        component: () => import('../articles/Article_0006.vue')
     }
 ]
 

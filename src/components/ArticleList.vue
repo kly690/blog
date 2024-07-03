@@ -168,8 +168,8 @@ const router = useRouter()
 
 var al_odd = [];
 var al_even = [];
-for(let i=0;i<articleList.articleDatabase.length;i++){
-  if(i%2==0){
+for(let i=articleList.articleDatabase.length-1;i>=0;i--){
+  if(i%2!=0){
     al_odd.push(articleList.articleDatabase[i]);
   }else{
     al_even.push(articleList.articleDatabase[i]);

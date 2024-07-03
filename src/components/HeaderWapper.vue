@@ -3,7 +3,7 @@
     <div class="head">
       <nav class="nav_tag">
         <div class="nav_index" >
-          <a @click="gotoHome"><i class="fa-solid fa-fire-flame-curved"></i> <i class="fa-solid fa-k "></i></a>
+          <a @click="gotoHome"><i class="fa-solid fa-mug-hot"></i> 休息一小时</a>
           <span class="nav_version">2.0.0</span>
         </div>
         <!-- <div class="nav_blank"></div> -->
@@ -28,14 +28,19 @@
   height: 30px;
   position: sticky;
   top: 0px;
-  padding: 20px 0;
+  padding: 25px 0;
   background-color: var(--title-background-color);
   z-index: 10;
   border-bottom: var(--hr-color) solid 1px;
 }
 
+.nav_index {
+  display: flex;
+}
+
 .nav_index a {
   color: var(--main-color-black);
+  font-size: 16px;
 }
 
 .nav_version {
@@ -64,7 +69,7 @@
 }
 .nav_a {
   color: var(--main-color-black);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 200;
   text-decoration: none;
   position: relative;

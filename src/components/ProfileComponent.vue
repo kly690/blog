@@ -9,8 +9,8 @@
           <div>HI，这里是我的个人博客</div>
           <div>
             我的其他主页：
-            <a href="https://space.bilibili.com/38680851" class="i_bili"><i class="fa-brands fa-bilibili"></i></a> | 
-            <a href="https://github.com/kly690" class="i_git"><i class="fa-brands fa-github"></i></a>
+            <a href="https://space.bilibili.com/38680851" class="i_bili"><i class="fa-brands fa-bilibili"></i> bilibili</a> | 
+            <a href="https://github.com/kly690" class="i_git"><i class="fa-brands fa-github"></i> Github</a>
           </div>
         </div>
       </div>
@@ -21,6 +21,10 @@
 </template>
 
 <style scoped>
+.i_bili, .i_git{
+  text-decoration: none;
+}
+
 .i_bili:hover {
   color: var(--diary-heart-color-red);
 }
@@ -58,8 +62,9 @@
 }
 
 .title_profile::before {
-  content: "手绘仅供参考，实物以真人为准";
+  content: "本人手绘仅供参考，实物以真人为准";
   width: 260px;
+  display: block;
   color: var(--main-color-grey);
   font-size: 16px;
   text-align: center;

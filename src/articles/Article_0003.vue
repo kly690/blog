@@ -5,7 +5,7 @@
         <ArticleTitle :articleId="aid"/>
         <div class="body-wrapper">
         <div class="body">
-            <div id="music"></div>
+            <MusicComponent :id="aid"/>
             <div class="content">
                 <p>
                     我最喜欢的阿图尔叔叔在同船员们一起享受完美食盛宴后安静地离开了，我再也无法在浆果林旁看见他高兴地拍肚子，听不见他兴奋地吹奏笛曲，与暴雨共舞。我一时有些想哭，但是却哭不出来，在漫长的旅途中，我接受了每一位船员最终都会进入永恒之门，永远地离开，包括我自己。
@@ -35,6 +35,7 @@ import FooterWapper from '../components/FooterWapper.vue'
 import TopButton from '../components/TopButton.vue'
 import ArticleTitle from '../components/ArticleTitle.vue'
 import ImgComponent from '../components/ImgComponent.vue'
+import MusicComponent from '../components/MusicComponent.vue'
 
 const aid = "0003";
 </script>
@@ -55,15 +56,15 @@ const aid = "0003";
   width: 680px;
   color: var(--main-color-black);
   font-family: "Open Sans", "\5FAE\8F6F\96C5\9ED1";
-  font-size: 1.25rem;
-  font-weight: 100;
-  line-height: 1.7;
+  font-size: 1rem;
+  font-weight: 200;
+  line-height: 1.5;
   letter-spacing: 0.05rem;
   text-align: center;
 }
 
 .content p {
-  text-align: left;
+  text-align: justify;
   text-indent: 2rem;
 }
 

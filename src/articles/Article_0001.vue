@@ -65,15 +65,15 @@ const aid = "0001";
   width: 680px;
   color: var(--main-color-black);
   font-family: "Open Sans", "\5FAE\8F6F\96C5\9ED1";
-  font-size: 1.25rem;
-  font-weight: 100;
-  line-height: 1.7;
+  font-size: 1rem;
+  font-weight: 200;
+  line-height: 1.5;
   letter-spacing: 0.05rem;
   text-align: center;
 }
 
 .content p {
-  text-align: left;
+  text-align: justify;
   text-indent: 2rem;
 }
 
